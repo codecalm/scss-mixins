@@ -182,7 +182,7 @@ Result:
 }
 ```
 
-### `ellipsis`
+### `ellipsis([$width: 100%])`
 
 Usage:
 
@@ -203,5 +203,6 @@ strong.w150 {
    max-width: 150px;
    overflow: hidden;
    text-overflow: ellipsis;
-   white-space: nowrap; }
+   white-space: nowrap;
+}
 ```
