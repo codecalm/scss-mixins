@@ -51,3 +51,19 @@ p {
 @include feature('page-boxed') {
 	background: #fafafa;
 }
+
+//
+// CLEARFIX
+//
+
+.grid {
+	@include clearfix;
+}
+
+footer {
+	@include clearfix;
+}
+
+.gallery {
+	@include clearfix(false);
+}

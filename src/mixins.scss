@@ -18,7 +18,7 @@ $base-font-size: 16px !default;
 //
 // Right to left mixin
 //
-@mixin rtl() {
+@mixin rtl {
 	html[dir="rtl"] & {
 		@content;
 	}
@@ -31,5 +31,36 @@ $base-font-size: 16px !default;
 @mixin feature($name) {
 	body.#{$name} & {
 		@content;
+	}
+}
+
+
+//
+// Media query mixin
+//
+@mixin mq {
+
+}
+
+//
+// Clearfix mixin
+//
+@mixin clearfixStyle {
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+
+%clearfix {
+	@include clearfixStyle;
+}
+
+@mixin clearfix($extend: true) {
+	@if($extend) {
+		@extend %clearfix;
+	} @else {
+		@include clearfixStyle;
 	}
 }
