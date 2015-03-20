@@ -1,0 +1,21 @@
+{
+  "name": "scss-mixins",
+  "version": "0.0.0",
+  "description": "Useful SCSS mixins",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codecalm/scss-mixins"
+  },
+  "author": "Paweł Kuna (codecalm)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codecalm/scss-mixins/issues"
+  },
+  "homepage": "https://github.com/codecalm/scss-mixins",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "mixins"
+  ]
+}
