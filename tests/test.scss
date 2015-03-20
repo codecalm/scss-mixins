@@ -1,0 +1,34 @@
+@import '../src/mixins';
+
+
+$base-font-size: 20px;
+
+// FONT SIZE
+
+h1 {
+	@include font-size(40px);
+}
+
+h2 {
+	@include font-size(30px, 35px);
+}
+
+
+// RTL
+p {
+	float: left;
+
+	@include rtl {
+		float: right;
+	}
+
+	@include rtl {
+		a {
+			color: #cc0000;
+		}
+	}
+}
+
+@include rtl {
+	background: #cc0000;
+}
