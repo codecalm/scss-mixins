@@ -1,6 +1,6 @@
 # Useful SCSS mixins
 
-### `font-size($font-size[, $line-height])`
+#### `font-size($font-size[, $line-height: false])`
 
 Usage:
 
@@ -21,27 +21,27 @@ h1 {
 }
 ```
 
-### `rtl`
+#### `rtl`
 
 Usage:
 
 ```scss
 p {
-	float: left;
+   float: left;
 
-	@include rtl {
-		float: right;
-	}
+   @include rtl {
+      float: right;
+   }
 
-	@include rtl {
-		a {
-			color: #cc0000;
-		}
-	}
+   @include rtl {
+      a {
+         color: #cc0000;
+      }
+   }
 }
 
 @include rtl {
-	background: #cc0000;
+   background: #cc0000;
 }
 ```
 
@@ -65,9 +65,9 @@ html[dir="rtl"] {
 }
 ```
 
-### `feature($name)`
+#### `feature($name)`
 
-Usage
+Usage:
 
 ```scss
 .wrap {
@@ -96,5 +96,40 @@ body.page-boxed .wrap {
 
 body.page-boxed {
    background: #fafafa;
+}
+```
+
+#### `clearfix([$extend: true])`
+
+Usage:
+
+```scss
+.grid {
+   @include clearfix;
+}
+
+footer {
+   @include clearfix;
+}
+
+.gallery {
+   @include clearfix(false);
+}
+```
+
+Result:
+
+```css
+.grid::after,
+footer::after {
+   clear: both;
+   content: "";
+   display: table;
+}
+
+.gallery::after {
+   clear: both;
+   content: "";
+   display: table;
 }
 ```
