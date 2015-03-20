@@ -3,6 +3,27 @@
 //
 $base-font-size: 16px !default;
 
+$all-text-inputs: 'input[type="color"]',
+	'input[type="date"]',
+	'input[type="datetime"]',
+	'input[type="datetime-local"]',
+	'input[type="email"]',
+	'input[type="month"]',
+	'input[type="number"]',
+	'input[type="password"]',
+	'input[type="search"]',
+	'input[type="tel"]',
+	'input[type="text"]',
+	'input[type="time"]',
+	'input[type="url"]',
+	'input[type="week"]',
+	'textarea' !default;
+
+$all-buttons-list: 'button',
+	'input[type="button"]',
+	'input[type="reset"]',
+	'input[type="submit"]';
+
 //
 // Pixels to ems function
 //
@@ -53,7 +74,7 @@ $mq-breakpoints: (
 ) !default;
 
 
-@mixin mq($from, $and: false) {
+@mixin mq($from) {
 	$media-query: '';
 	$min-width: 0;
 
@@ -67,13 +88,19 @@ $mq-breakpoints: (
 		$media-query: '#{$media-query} and (min-width: #{$min-width})';
 	}
 
-	@if $and {
-		$media-query: '#{$media-query} and #{$and}';
-	}
-
 	$media-query: str-slice(unquote($media-query), 6);
 
 	@media #{$media-query} {
+		@content;
+	}
+}
+
+@mixin hidpi($ratio: 1.3) {
+	@media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+	only screen and (min--moz-device-pixel-ratio: $ratio),
+	only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+	only screen and (min-resolution: round($ratio * 96dpi)),
+	only screen and (min-resolution: $ratio * 1dppx) {
 		@content;
 	}
 }
@@ -99,4 +126,16 @@ $mq-breakpoints: (
 	} @else {
 		@include clearfixStyle;
 	}
+}
+
+
+//
+// Ellipsis mixin
+//
+@mixin ellipsis($width: 100%) {
+	display: inline-block;
+	max-width: $width;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }

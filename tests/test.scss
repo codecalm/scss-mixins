@@ -3,6 +3,13 @@
 
 $base-font-size: 20px;
 
+$mq-breakpoints: (
+		mobile:  520px,
+		tablet:  840px,
+		desktop: 980px,
+		wide:    1200px
+) !default;
+
 //
 // FONT SIZE
 //
@@ -81,11 +88,29 @@ footer {
 		width: 740px;
 	}
 
-	@include mq(desktop, print) {
+	@include mq(desktop) {
 		width: 980px;
 	}
 
 	@include mq(wide) {
 		width: 1300px;
 	}
+}
+
+.square {
+	background: #cc0000;
+
+	@include hidpi {
+		background: #00cc00;
+	}
+}
+
+//
+// Ellipsis
+//
+
+strong.w150 {
+	color: #cc0000;
+
+	@include ellipsis(150px);
 }
