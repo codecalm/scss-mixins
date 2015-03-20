@@ -133,3 +133,51 @@ footer::after {
    display: table;
 }
 ```
+
+### `media-query($from[, $and: false])`
+
+Usage:
+
+```scss
+.container {
+	width: 100%;
+
+	@include mq(tablet) {
+		width: 740px;
+	}
+
+	@include mq(desktop, print) {
+		width: 980px;
+	}
+
+	@include mq(wide) {
+		width: 1300px;
+	}
+}
+```
+
+Result:
+
+```css
+.container {
+   width: 100%;
+}
+
+@media (min-width: 37em) {
+   .container {
+      width: 740px;
+   }
+}
+
+@media (min-width: 49em) and print {
+   .container {
+      width: 980px;
+   }
+}
+
+@media (min-width: 65em) {
+   .container {
+      width: 1300px;
+   }
+}
+```
