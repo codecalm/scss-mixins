@@ -3,7 +3,9 @@
 
 $base-font-size: 20px;
 
+//
 // FONT SIZE
+//
 
 h1 {
 	@include font-size(40px);
@@ -14,7 +16,9 @@ h2 {
 }
 
 
+//
 // RTL
+//
 p {
 	float: left;
 
@@ -31,4 +35,19 @@ p {
 
 @include rtl {
 	background: #cc0000;
+}
+
+//
+// FEATURE
+//
+.wrap {
+	width: 100%;
+
+	@include feature('page-boxed') {
+		width: 990px;
+	}
+}
+
+@include feature('page-boxed') {
+	background: #fafafa;
 }
