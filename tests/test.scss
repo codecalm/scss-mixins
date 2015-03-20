@@ -19,6 +19,7 @@ h2 {
 //
 // RTL
 //
+
 p {
 	float: left;
 
@@ -40,6 +41,7 @@ p {
 //
 // FEATURE
 //
+
 .wrap {
 	width: 100%;
 
@@ -66,4 +68,24 @@ footer {
 
 .gallery {
 	@include clearfix(false);
+}
+
+//
+// MEDIA QUERY
+//
+
+.container {
+	width: 100%;
+
+	@include mq(tablet) {
+		width: 740px;
+	}
+
+	@include mq(desktop, print) {
+		width: 980px;
+	}
+
+	@include mq(wide) {
+		width: 1300px;
+	}
 }

@@ -3,15 +3,22 @@
 //
 $base-font-size: 16px !default;
 
+//
+// Pixels to ems function
+//
+@function px2em($px) {
+	@return ($px / $base-font-size) * 1em;
+}
+
 
 //
 // Font size and line height mixin
 //
 @mixin font-size($font-size, $line-height: false) {
-	font-size: ($font-size / $base-font-size) * 1em; /* #{$font-size} */
+	font-size: px2em($font-size); /* #{$font-size} */
 
 	@if $line-height != false {
-		line-height: ($line-height / $font-size) * 1em; /* #{$line-height} */
+		line-height: ($line-height / $font-size); /* #{$line-height} */
 	}
 }
 
@@ -38,8 +45,40 @@ $base-font-size: 16px !default;
 //
 // Media query mixin
 //
-@mixin mq {
+$mq-breakpoints: (
+	mobile:  320px,
+	tablet:  740px,
+	desktop: 980px,
+	wide:    1300px
+) !default;
 
+
+@mixin mq($from, $and: false, $media-type: all) {
+	$media-query: '';
+	$min-width: 0;
+
+	@if type-of($from) == number {
+		$min-width: px2em($from);
+	} @else {
+		$min-width: px2em(map-get($mq-breakpoints, $from));
+	}
+
+	@if $min-width != 0 {
+		$media-query: '#{$media-query} and (min-width: #{$min-width})';
+	}
+
+	@if $and {
+		$media-query: '#{$media-query} and #{$and}';
+	}
+
+	@if ($media-type == 'all' and $media-query != '') {
+		$media-type: '';
+		$media-query: str-slice(unquote($media-query), 6);
+	}
+
+	@media #{$media-type + $media-query} {
+		@content;
+	}
 }
 
 //
