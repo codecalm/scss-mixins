@@ -1,0 +1,16 @@
+/**
+ * Defaults
+ */
+$base-font-size: 16px !default;
+
+
+/**
+ * Font size and line height mixin
+ */
+@mixin font-size($font-size, $line-height: false) {
+	font-size: ($font-size / $base-font-size) * 1em; /* #{$font-size} */
+
+	@if $line-height != false {
+		line-height: ($line-height / $font-size) * 1em; /* #{$font-size} */
+	}
+}
