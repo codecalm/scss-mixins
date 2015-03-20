@@ -53,7 +53,7 @@ $mq-breakpoints: (
 ) !default;
 
 
-@mixin mq($from, $and: false, $media-type: all) {
+@mixin mq($from, $and: false) {
 	$media-query: '';
 	$min-width: 0;
 
@@ -71,12 +71,9 @@ $mq-breakpoints: (
 		$media-query: '#{$media-query} and #{$and}';
 	}
 
-	@if ($media-type == 'all' and $media-query != '') {
-		$media-type: '';
-		$media-query: str-slice(unquote($media-query), 6);
-	}
+	$media-query: str-slice(unquote($media-query), 6);
 
-	@media #{$media-type + $media-query} {
+	@media #{$media-query} {
 		@content;
 	}
 }
