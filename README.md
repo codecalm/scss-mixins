@@ -35,6 +35,8 @@ p {
 }
 ```
 
+Result:
+
 ```css
 p {
    float: left;
