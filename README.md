@@ -181,3 +181,27 @@ Result:
    }
 }
 ```
+
+### `ellipsis`
+
+Usage:
+
+```scss
+strong.w150 {
+   color: #cc0000;
+
+   @include ellipsis(150px);
+}
+```
+
+Result:
+
+```css
+strong.w150 {
+   color: #cc0000;
+   display: inline-block;
+   max-width: 150px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap; }
+```
