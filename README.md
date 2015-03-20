@@ -140,19 +140,19 @@ Usage:
 
 ```scss
 .container {
-	width: 100%;
+   width: 100%;
 
-	@include mq(tablet) {
-		width: 740px;
-	}
+   @include mq(tablet) {
+      width: 740px;
+   }
 
-	@include mq(desktop, print) {
-		width: 980px;
-	}
+   @include mq(desktop, print) {
+      width: 980px;
+   }
 
-	@include mq(wide) {
-		width: 1300px;
-	}
+   @include mq(wide) {
+      width: 1300px;
+   }
 }
 ```
 
