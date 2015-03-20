@@ -1,6 +1,6 @@
 # Useful SCSS mixins
 
-### `font-size`
+### `font-size($font-size[, $line-height])`
 
 Usage:
 
@@ -62,5 +62,39 @@ html[dir="rtl"] p a {
 
 html[dir="rtl"] {
    background: #cc0000;
+}
+```
+
+### `feature($name)`
+
+Usage
+
+```scss
+.wrap {
+   width: 100%;
+
+   @include feature('page-boxed') {
+      width: 990px;
+   }
+}
+
+@include feature('page-boxed') {
+   background: #fafafa;
+}
+```
+
+Result:
+
+```css
+.wrap {
+   width: 100%; 
+}
+
+body.page-boxed .wrap {
+   width: 990px; 
+}
+
+body.page-boxed {
+   background: #fafafa;
 }
 ```
