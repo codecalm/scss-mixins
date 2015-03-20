@@ -27,11 +27,21 @@ Usage:
 
 ```scss
 p {
-   float: left;
-   
-   @include rtl {
-      float: right;   
-   }
+	float: left;
+
+	@include rtl {
+		float: right;
+	}
+
+	@include rtl {
+		a {
+			color: #cc0000;
+		}
+	}
+}
+
+@include rtl {
+	background: #cc0000;
 }
 ```
 
@@ -41,8 +51,16 @@ Result:
 p {
    float: left;
 }
-
+  
 html[dir="rtl"] p {
    float: right;
+}
+
+html[dir="rtl"] p a {
+   color: #cc0000;
+}
+
+html[dir="rtl"] {
+   background: #cc0000;
 }
 ```
